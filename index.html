@@ -1,0 +1,1786 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صيدلية درة العلاج الحديثة | بورتسودان</title>
+    <meta name="description" content="صيدلية درة العلاج الحديثة في بورتسودان - صرف الأدوية، استشارات دوائية، مستلزمات طبية. صحتكم أمانة.">
+    <meta name="keywords" content="صيدلية بورتسودان, درة العلاج, صيدلية السودان, أدوية, استشارة دوائية">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/cairo@5.0.0/index.min.css">
+    <style>
+        :root {
+            --primary: #0d7c5f;
+            --primary-dark: #095e48;
+            --primary-light: #e8f5f0;
+            --gold: #c9a84c;
+            --gold-light: #f5ecd3;
+            --white: #ffffff;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-600: #4b5563;
+            --gray-800: #1f2937;
+            --shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1);
+            --radius: 12px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cairo', 'Tajawal', 'Segoe UI', Tahoma, sans-serif;
+            background: var(--white);
+            color: var(--gray-800);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: 0;
+            background: rgba(255,255,255,0.97);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+            transition: var(--transition);
+        }
+
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0.8rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-icon {
+            width: 42px;
+            height: 42px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.3rem;
+        }
+
+        .logo-text {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            line-height: 1.3;
+        }
+
+        .logo-text span {
+            display: block;
+            font-size: 0.7rem;
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        .nav {
+            display: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--gray-800);
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            right: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .header-whatsapp {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: #25d366;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .header-whatsapp:hover {
+            background: #1da851;
+            transform: scale(1.05);
+        }
+
+        .menu-btn {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .menu-btn span {
+            width: 24px;
+            height: 2.5px;
+            background: var(--gray-800);
+            border-radius: 2px;
+            transition: var(--transition);
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 280px;
+            height: 100vh;
+            background: var(--white);
+            z-index: 2000;
+            padding: 2rem 1.5rem;
+            box-shadow: -5px 0 20px rgba(0,0,0,0.15);
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+
+        .mobile-menu-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1999;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .mobile-menu-overlay.active {
+            opacity: 1;
+        }
+
+        .mobile-menu .close-btn {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--gray-600);
+            background: none;
+            border: none;
+        }
+
+        .mobile-menu ul {
+            list-style: none;
+            margin-top: 3rem;
+        }
+
+        .mobile-menu ul li {
+            margin-bottom: 1rem;
+        }
+
+        .mobile-menu ul a {
+            text-decoration: none;
+            color: var(--gray-800);
+            font-size: 1.1rem;
+            font-weight: 600;
+            display: block;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--gray-100);
+        }
+
+        /* Hero */
+        .hero {
+            margin-top: 70px;
+            padding: 4rem 1.5rem;
+            background: linear-gradient(135deg, var(--primary-light) 0%, var(--white) 50%, var(--gold-light) 100%);
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(13,124,95,0.03) 0%, transparent 70%);
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .hero-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            color: var(--primary);
+            font-weight: 600;
+            box-shadow: var(--shadow);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(1.8rem, 5vw, 3rem);
+            color: var(--primary-dark);
+            line-height: 1.4;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .hero h1 .gold {
+            color: var(--gold);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--gray-600);
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        .hero-btns {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.9rem 1.8rem;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+            font-family: inherit;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--white);
+            box-shadow: 0 4px 15px rgba(13,124,95,0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(13,124,95,0.4);
+        }
+
+        .btn-secondary {
+            background: var(--white);
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-light);
+            transform: translateY(-2px);
+        }
+
+        .btn-gold {
+            background: linear-gradient(135deg, var(--gold), #b8943f);
+            color: var(--white);
+            box-shadow: 0 4px 15px rgba(201,168,76,0.3);
+        }
+
+        .btn-gold:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(201,168,76,0.4);
+        }
+
+        /* Sections */
+        .section {
+            padding: 4rem 1.5rem;
+        }
+
+        .section-alt {
+            background: var(--gray-50);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: clamp(1.5rem, 4vw, 2.2rem);
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+            font-weight: 800;
+        }
+
+        .section-header p {
+            color: var(--gray-600);
+            font-size: 1rem;
+        }
+
+        .section-header .line {
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(to left, var(--primary), var(--gold));
+            margin: 1rem auto 0;
+            border-radius: 2px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Services */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 2rem 1.5rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+            border: 1px solid var(--gray-100);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-light);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-light), var(--gold-light));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.1rem;
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .service-card p {
+            font-size: 0.9rem;
+            color: var(--gray-600);
+        }
+
+        /* Forms */
+        .form-section {
+            background: linear-gradient(135deg, var(--primary-light) 0%, var(--white) 100%);
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 2.5rem 2rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--gray-100);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--gray-800);
+            font-size: 0.95rem;
+        }
+
+        .form-group label .required {
+            color: #e53e3e;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 2px solid var(--gray-200);
+            border-radius: 10px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: var(--transition);
+            direction: rtl;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(13,124,95,0.1);
+        }
+
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .file-upload {
+            position: relative;
+            border: 2px dashed var(--gray-200);
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+            background: var(--gray-50);
+        }
+
+        .file-upload:hover {
+            border-color: var(--primary);
+            background: var(--primary-light);
+        }
+
+        .file-upload input[type="file"] {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .file-upload-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .file-upload p {
+            color: var(--gray-600);
+            font-size: 0.9rem;
+        }
+
+        .file-upload .hint {
+            font-size: 0.8rem;
+            color: var(--gray-600);
+            margin-top: 0.3rem;
+        }
+
+        .image-preview {
+            display: none;
+            margin-top: 1rem;
+            text-align: center;
+        }
+
+        .image-preview img {
+            max-width: 100%;
+            max-height: 200px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .image-preview .remove-btn {
+            display: inline-block;
+            margin-top: 0.5rem;
+            color: #e53e3e;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .form-alert {
+            background: var(--gold-light);
+            border: 1px solid var(--gold);
+            border-radius: 10px;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+            color: var(--gray-800);
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+
+        .form-alert .icon {
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .form-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .form-buttons .btn {
+            flex: 1;
+            justify-content: center;
+            min-width: 200px;
+        }
+
+        /* Health Tips */
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .tip-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid var(--gray-100);
+        }
+
+        .tip-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .tip-card-header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            padding: 1.5rem;
+            color: var(--white);
+        }
+
+        .tip-card-header .tip-icon {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .tip-card-header h3 {
+            font-size: 1.1rem;
+        }
+
+        .tip-card-body {
+            padding: 1.5rem;
+        }
+
+        .tip-card-body p {
+            font-size: 0.9rem;
+            color: var(--gray-600);
+            line-height: 1.8;
+        }
+
+        .tip-card-body .tip-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            margin-top: 1rem;
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
+        }
+
+        .tip-card-body .tip-link:hover {
+            color: var(--gold);
+        }
+
+        /* Why Choose Us */
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .why-item {
+            text-align: center;
+            padding: 1.5rem;
+        }
+
+        .why-item .why-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 1.5rem;
+            color: var(--white);
+            box-shadow: 0 4px 15px rgba(13,124,95,0.3);
+        }
+
+        .why-item h3 {
+            font-size: 1.1rem;
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .why-item p {
+            font-size: 0.9rem;
+            color: var(--gray-600);
+        }
+
+        /* Contact */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .contact-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            border: 1px solid var(--gray-100);
+        }
+
+        .contact-card h3 {
+            font-size: 1.2rem;
+            color: var(--primary-dark);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .contact-item .ci-icon {
+            width: 36px;
+            height: 36px;
+            background: var(--primary-light);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 0.9rem;
+        }
+
+        .contact-item .ci-text {
+            font-size: 0.9rem;
+            color: var(--gray-600);
+        }
+
+        .contact-item .ci-text strong {
+            display: block;
+            color: var(--gray-800);
+            margin-bottom: 0.2rem;
+        }
+
+        .contact-item a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-link {
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .social-link.tiktok {
+            background: #000;
+            color: #fff;
+        }
+
+        .social-link.facebook {
+            background: #1877f2;
+            color: #fff;
+        }
+
+        .social-link.whatsapp-social {
+            background: #25d366;
+            color: #fff;
+        }
+
+        .social-link:hover {
+            transform: scale(1.1);
+        }
+
+        .work-hours {
+            margin-top: 1rem;
+        }
+
+        .work-hours table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .work-hours td {
+            padding: 0.5rem 0;
+            font-size: 0.9rem;
+            border-bottom: 1px solid var(--gray-100);
+        }
+
+        .work-hours td:first-child {
+            font-weight: 600;
+            color: var(--gray-800);
+        }
+
+        .work-hours td:last-child {
+            text-align: left;
+            color: var(--gray-600);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--gray-800);
+            color: var(--gray-200);
+            padding: 3rem 1.5rem 1.5rem;
+        }
+
+        .footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-col h4 {
+            color: var(--white);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-col p, .footer-col a {
+            font-size: 0.9rem;
+            color: var(--gray-200);
+            text-decoration: none;
+            line-height: 2;
+        }
+
+        .footer-col a:hover {
+            color: var(--gold);
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 1.5rem;
+            text-align: center;
+        }
+
+        .footer-bottom p {
+            font-size: 0.85rem;
+            color: var(--gray-200);
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-disclaimer {
+            background: rgba(201,168,76,0.1);
+            border: 1px solid rgba(201,168,76,0.3);
+            border-radius: 8px;
+            padding: 0.8rem 1rem;
+            margin-top: 1rem;
+            font-size: 0.8rem;
+            color: var(--gold);
+            text-align: center;
+        }
+
+        /* Floating WhatsApp */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 1.5rem;
+            left: 1.5rem;
+            width: 56px;
+            height: 56px;
+            background: #25d366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.6rem;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(37,211,102,0.4);
+            z-index: 999;
+            transition: var(--transition);
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(37,211,102,0.5);
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        /* Toast */
+        .toast {
+            position: fixed;
+            top: 100px;
+            left: 50%;
+            transform: translateX(-50%) translateY(-20px);
+            background: var(--primary);
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            box-shadow: var(--shadow-lg);
+            z-index: 3000;
+            opacity: 0;
+            transition: all 0.3s ease;
+            pointer-events: none;
+        }
+
+        .toast.show {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .toast.error {
+            background: #e53e3e;
+        }
+
+        /* Responsive */
+        @media (min-width: 768px) {
+            .nav {
+                display: block;
+            }
+
+            .menu-btn {
+                display: none;
+            }
+
+            .hero {
+                padding: 6rem 2rem;
+            }
+
+            .section {
+                padding: 5rem 2rem;
+            }
+
+            .form-container {
+                padding: 3rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .hero-inner {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                align-items: center;
+                gap: 3rem;
+            }
+
+            .hero-visual {
+                display: flex;
+                justify-content: center;
+            }
+        }
+
+        /* Scroll animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Validation */
+        .input-error {
+            border-color: #e53e3e !important;
+        }
+
+        .error-msg {
+            color: #e53e3e;
+            font-size: 0.8rem;
+            margin-top: 0.3rem;
+            display: none;
+        }
+
+        .error-msg.show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-inner">
+            <div class="logo">
+                <div class="logo-icon">💊</div>
+                <div class="logo-text">
+                    درة العلاج الحديثة
+                    <span>Durat Al-Alaj Pharmacy</span>
+                </div>
+            </div>
+            <nav class="nav">
+                <ul class="nav-links">
+                    <li><a href="#home">الرئيسية</a></li>
+                    <li><a href="#services">خدماتنا</a></li>
+                    <li><a href="#prescription">أرسل روشتة</a></li>
+                    <li><a href="#consultation">استشارة</a></li>
+                    <li><a href="#tips">نصائح صحية</a></li>
+                    <li><a href="#contact">تواصل معنا</a></li>
+                </ul>
+            </nav>
+            <a href="https://wa.me/249913190040" target="_blank" class="header-whatsapp">
+                <span>📱</span> واتساب
+            </a>
+            <div class="menu-btn" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu-overlay" id="menuOverlay" onclick="toggleMenu()"></div>
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="close-btn" onclick="toggleMenu()">✕</button>
+        <ul>
+            <li><a href="#home" onclick="toggleMenu()">الرئيسية</a></li>
+            <li><a href="#services" onclick="toggleMenu()">خدماتنا</a></li>
+            <li><a href="#prescription" onclick="toggleMenu()">أرسل روشتة</a></li>
+            <li><a href="#consultation" onclick="toggleMenu()">استشارة</a></li>
+            <li><a href="#tips" onclick="toggleMenu()">نصائح صحية</a></li>
+            <li><a href="#contact" onclick="toggleMenu()">تواصل معنا</a></li>
+        </ul>
+    </div>
+
+    <!-- Hero -->
+    <section class="hero" id="home">
+        <div class="hero-inner">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span>🏥</span> صيدلية درة العلاج الحديثة
+                </div>
+                <h1>
+                    صحتكم <span class="gold">أمانة</span>
+                    <br>في أيدٍ أمينة
+                </h1>
+                <p>نقدم لكم خدمات صيدلانية متكاملة بأعلى معايير الجودة والاحترافية في بورتسودان. فريقنا من الصيادلة المؤهلين جاهز لخدمتكم على مدار الساعة.</p>
+                <div class="hero-btns">
+                    <a href="#prescription" class="btn btn-primary">
+                        📋 أرسل روشتتك
+                    </a>
+                    <a href="#consultation" class="btn btn-secondary">
+                        💬 استشر صيدلي الآن
+                    </a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <svg width="300" height="300" viewBox="0 0 300 300" fill="none">
+                    <circle cx="150" cy="150" r="130" fill="#e8f5f0" stroke="#0d7c5f" stroke-width="2"/>
+                    <rect x="120" y="80" width="60" height="140" rx="10" fill="#0d7c5f"/>
+                    <rect x="80" y="120" width="140" height="60" rx="10" fill="#0d7c5f"/>
+                    <circle cx="150" cy="150" r="20" fill="#c9a84c"/>
+                    <path d="M140 150 L148 158 L162 142" stroke="white" stroke-width="3" fill="none" stroke-linecap="round"/>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section class="section section-alt" id="services">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>خدماتنا</h2>
+                <p>نوفر لكم مجموعة شاملة من الخدمات الصيدلانية</p>
+                <div class="line"></div>
+            </div>
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <div class="service-icon">💊</div>
+                    <h3>صرف الأدوية والروشتات</h3>
+                    <p>صرف جميع الأدوية الموصوفة بدقة وعناية مع شرح طريقة الاستخدام</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">💬</div>
+                    <h3>استشارات دوائية مجانية</h3>
+                    <p>فريق صيادلة متخصص جاهز للإجابة على استفساراتكم الدوائية</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">🩺</div>
+                    <h3>قياس الضغط والسكر</h3>
+                    <p>خدمة قياس ضغط الدم ونسبة السكر مجاناً لمتابعة صحتكم</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">👶</div>
+                    <h3>مستلزمات الأطفال والأم</h3>
+                    <p>تشكيلة واسعة من منتجات العناية بالأم والطفل بأفضل الماركات</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">💪</div>
+                    <h3>مكملات غذائية وفيتامينات</h3>
+                    <p>مجموعة متنوعة من المكملات الغذائية والفيتامينات المعتمدة</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">✨</div>
+                    <h3>مستحضرات العناية والتجميل</h3>
+                    <p>منتجات عناية بالبشرة والشعر ومستحضرات تجميل أصلية</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">🏥</div>
+                    <h3>المستلزمات الطبية</h3>
+                    <p>جميع المستلزمات والأجهزة الطبية المنزلية بأسعار مناسبة</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Prescription Upload -->
+    <section class="section form-section" id="prescription">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>📋 أرسل روشتتك</h2>
+                <p>ارفع صورة الروشتة وسنقوم بتجهيز طلبك في أسرع وقت</p>
+                <div class="line"></div>
+            </div>
+            <div class="form-container fade-in">
+                <div class="form-alert">
+                    <span class="icon">⚠️</span>
+                    <div>
+                        <strong>تنبيه مهم:</strong> واتساب لا يسمح بإرفاق الصورة تلقائياً من الرابط. بعد فتح المحادثة، يرجى إرفاق صورة الروشتة يدوياً في المحادثة.
+                    </div>
+                </div>
+                <form id="prescriptionForm" onsubmit="return false;">
+                    <div class="form-group">
+                        <label>الاسم الكامل <span class="required">*</span></label>
+                        <input type="text" id="pName" placeholder="أدخل اسمك الكامل" required>
+                        <div class="error-msg" id="pNameError">يرجى إدخال الاسم</div>
+                    </div>
+                    <div class="form-group">
+                        <label>رقم الهاتف <span class="required">*</span></label>
+                        <input type="tel" id="pPhone" placeholder="مثال: 0912345678" required>
+                        <div class="error-msg" id="pPhoneError">يرجى إدخال رقم هاتف صحيح</div>
+                    </div>
+                    <div class="form-group">
+                        <label>صورة الروشتة <span class="required">*</span></label>
+                        <div class="file-upload" id="fileUploadArea">
+                            <input type="file" id="pImage" accept="image/*" capture="environment" onchange="handleImageUpload(event)">
+                            <div class="file-upload-icon">📷</div>
+                            <p>اضغط لرفع الصورة أو التقاط صورة بالكاميرا</p>
+                            <p class="hint">الحد الأقصى: 5 ميجابايت | JPG, PNG</p>
+                        </div>
+                        <div class="image-preview" id="imagePreview">
+                            <img id="previewImg" src="" alt="معاينة الروشتة">
+                            <div class="remove-btn" onclick="removeImage()">✕ إزالة الصورة</div>
+                        </div>
+                        <div class="error-msg" id="pImageError">يرجى رفع صورة الروشتة</div>
+                    </div>
+                    <div class="form-group">
+                        <label>ملاحظات (اختياري)</label>
+                        <textarea id="pNotes" placeholder="أي ملاحظات إضافية تريد إضافتها..."></textarea>
+                    </div>
+                    <div class="form-buttons">
+                        <button type="button" class="btn btn-primary" onclick="sendPrescriptionWhatsApp()">
+                            📱 إرسال عبر واتساب
+                        </button>
+                        <button type="button" class="btn btn-gold" onclick="sendPrescriptionEmail()">
+                            ✉️ إرسال للبريد
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Consultation -->
+    <section class="section section-alt" id="consultation">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>💬 استشارة دوائية</h2>
+                <p>اطرح سؤالك وسيتواصل معك أحد صيادلتنا المتخصصين</p>
+                <div class="line"></div>
+            </div>
+            <div class="form-container fade-in">
+                <div class="form-alert">
+                    <span class="icon">⚕️</span>
+                    <div>
+                        <strong>تنبيه:</strong> الاستشارة الدوائية لا تغني عن مراجعة الطبيب المختص. في الحالات الطارئة يرجى التوجه لأقرب مركز صحي.
+                    </div>
+                </div>
+                <form id="consultationForm" onsubmit="return false;">
+                    <div class="form-group">
+                        <label>الاسم <span class="required">*</span></label>
+                        <input type="text" id="cName" placeholder="اسمك الكامل" required>
+                        <div class="error-msg" id="cNameError">يرجى إدخال الاسم</div>
+                    </div>
+                    <div class="form-group">
+                        <label>العمر</label>
+                        <input type="number" id="cAge" placeholder="العمر بالسنوات" min="1" max="120">
+                    </div>
+                    <div class="form-group">
+                        <label>نوع الاستفسار <span class="required">*</span></label>
+                        <select id="cType" required>
+                            <option value="">اختر نوع الاستفسار</option>
+                            <option value="استفسار عن دواء">استفسار عن دواء</option>
+                            <option value="تداخلات دوائية">تداخلات دوائية</option>
+                            <option value="آثار جانبية">آثار جانبية</option>
+                            <option value="جرعات الأطفال">جرعات الأطفال</option>
+                            <option value="مكملات غذائية">مكملات غذائية</option>
+                            <option value="أخرى">أخرى</option>
+                        </select>
+                        <div class="error-msg" id="cTypeError">يرجى اختيار نوع الاستفسار</div>
+                    </div>
+                    <div class="form-group">
+                        <label>سؤالك <span class="required">*</span></label>
+                        <textarea id="cQuestion" placeholder="اكتب سؤالك بالتفصيل..." required></textarea>
+                        <div class="error-msg" id="cQuestionError">يرجى كتابة سؤالك</div>
+                    </div>
+                    <div class="form-buttons">
+                        <button type="button" class="btn btn-primary" onclick="sendConsultation()">
+                            📱 إرسال الاستشارة عبر واتساب
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Health Tips -->
+    <section class="section" id="tips">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>💡 نصائح صحية</h2>
+                <p>نصائح مهمة للحفاظ على صحتكم وصحة عائلتكم</p>
+                <div class="line"></div>
+            </div>
+            <div class="tips-grid">
+                <div class="tip-card fade-in">
+                    <div class="tip-card-header">
+                        <div class="tip-icon">🌡️</div>
+                        <h3>الجفاف وارتفاع الحرارة</h3>
+                    </div>
+                    <div class="tip-card-body">
+                        <p>في الأجواء الحارة، اشرب كميات كافية من الماء (8 أكواب يومياً على الأقل). تجنب التعرض المباشر للشمس واستخدم محاليل التعويض عن الأملاح عند الحاجة.</p>
+                        <a href="https://tiktok.com/@duratalelaj" target="_blank" class="tip-link">
+                            شاهد المزيد على تيك توك ←
+                        </a>
+                    </div>
+                </div>
+                <div class="tip-card fade-in">
+                    <div class="tip-card-header">
+                        <div class="tip-icon">👶</div>
+                        <h3>الإسهال عند الأطفال</h3>
+                    </div>
+                    <div class="tip-card-body">
+                        <p>عند إصابة الطفل بالإسهال، أعطِه محلول الجفاف الفموري (ORS) لمنع فقدان السوائل. راجع الطبيب فوراً إذا استمر الإسهال أكثر من 24 ساعة أو ظهرت علامات الجفاف.</p>
+                        <a href="https://tiktok.com/@duratalelaj" target="_blank" class="tip-link">
+                            شاهد المزيد على تيك توك ←
+                        </a>
+                    </div>
+                </div>
+                <div class="tip-card fade-in">
+                    <div class="tip-card-header">
+                        <div class="tip-icon">🚫</div>
+                        <h3>لا تعطِ الدواء بالتخمين</h3>
+                    </div>
+                    <div class="tip-card-body">
+                        <p>لا تعطِ أي دواء لطفلك دون استشارة الصيدلي أو الطبيب. الجرعات الخاطئة قد تسبب أضراراً خطيرة. استخدم دائماً أداة القياس المرفقة مع الدواء.</p>
+                        <a href="https://tiktok.com/@duratalelaj" target="_blank" class="tip-link">
+                            شاهد المزيد على تيك توك ←
+                        </a>
+                    </div>
+                </div>
+                <div class="tip-card fade-in">
+                    <div class="tip-card-header">
+                        <div class="tip-icon">💊</div>
+                        <h3>الاستخدام الصحيح للمضادات الحيوية</h3>
+                    </div>
+                    <div class="tip-card-body">
+                        <p>أكمل كورس المضاد الحيوي كاملاً حتى لو تحسنت حالتك. التوقف المبكر يؤدي لمقاومة البكتيريا للدواء. لا تأخذ مضاداً حيوياً دون وصفة طبية.</p>
+                        <a href="https://tiktok.com/@duratalelaj" target="_blank" class="tip-link">
+                            شاهد المزيد على تيك توك ←
+                        </a>
+                    </div>
+                </div>
+                <div class="tip-card fade-in">
+                    <div class="tip-card-header">
+                        <div class="tip-icon">❤️</div>
+                        <h3>السكري وضغط الدم</h3>
+                    </div>
+                    <div class="tip-card-body">
+                        <p>واظب على قياس السكر والضغط بانتظام. التزم بالأدوية في مواعيدها، واتبع نظاماً غذائياً متوازناً. قلل الملح والسكر وتجنب التدخين.</p>
+                        <a href="https://tiktok.com/@duratalelaj" target="_blank" class="tip-link">
+                            شاهد المزيد على تيك توك ←
+                        </a>
+                    </div>
+                </div>
+                <div class="tip-card fade-in">
+                    <div class="tip-card-header">
+                        <div class="tip-icon">🧴</div>
+                        <h3>تخزين الأدوية بشكل صحيح</h3>
+                    </div>
+                    <div class="tip-card-body">
+                        <p>احفظ الأدوية بعيداً عن الحرارة والرطوبة وأشعة الشمس. بعض الأدوية تحتاج للتبريل. تأكد من تاريخ الصلاحية وتخلص من الأدوية المنتهية.</p>
+                        <a href="https://tiktok.com/@duratalelaj" target="_blank" class="tip-link">
+                            شاهد المزيد على تيك توك ←
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="section section-alt" id="why">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>⭐ لماذا تختارنا؟</h2>
+                <p>ما يميز صيدلية درة العلاج الحديثة</p>
+                <div class="line"></div>
+            </div>
+            <div class="why-grid">
+                <div class="why-item fade-in">
+                    <div class="why-icon">👨‍⚕️</div>
+                    <h3>صيادلة مؤهلون</h3>
+                    <p>فريق من الصيادلة ذوي الخبرة والكفاءة العالية لتقديم أفضل رعاية دوائية</p>
+                </div>
+                <div class="why-item fade-in">
+                    <div class="why-icon">✅</div>
+                    <h3>أدوية أصلية</h3>
+                    <p>جميع أدويتنا أصلية ومخزنة وفق أعلى معايير الجودة والسلامة</p>
+                </div>
+                <div class="why-item fade-in">
+                    <div class="why-icon">⚡</div>
+                    <h3>سرعة الخدمة</h3>
+                    <p>نلتزم بتقديم خدمة سريعة ودقيقة مع الحفاظ على جودة الخدمة</p>
+                </div>
+                <div class="why-item fade-in">
+                    <div class="why-icon">🔒</div>
+                    <h3>خصوصية تامة</h3>
+                    <p>نحافظ على سرية معلومات المرضى وخصوصيتهم بشكل كامل</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section" id="contact">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>📍 تواصل معنا</h2>
+                <p>نحن هنا لخدمتكم في أي وقت</p>
+                <div class="line"></div>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-card fade-in">
+                    <h3>📞 معلومات التواصل</h3>
+                    <div class="contact-item">
+                        <div class="ci-icon">📍</div>
+                        <div class="ci-text">
+                            <strong>العنوان</strong>
+                            بورتسودان – شارع الشهداء – لفة العامرية
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="ci-icon">📱</div>
+                        <div class="ci-text">
+                            <strong>واتساب</strong>
+                            <a href="https://wa.me/249913190040" target="_blank">0913190040</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="ci-icon">✉️</div>
+                        <div class="ci-text">
+                            <strong>البريد الإلكتروني</strong>
+                            <a href="mailto:Duratalelaj@gmail.com">Duratalelaj@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://tiktok.com/@duratalelaj" target="_blank" class="social-link tiktok" title="تيك توك">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.88 2.89 2.89 0 01-2.88-2.88 2.89 2.89 0 012.88-2.88c.28 0 .56.04.82.11V9.4a6.33 6.33 0 00-.82-.05A6.34 6.34 0 003.15 15.7 6.34 6.34 0 009.49 22a6.34 6.34 0 006.34-6.34V9.01a8.16 8.16 0 004.76 1.52v-3.4a4.85 4.85 0 01-1-.44z"/></svg>
+                        </a>
+                        <a href="https://www.facebook.com/profile.php?id=61594624628152&mibextid=ZbWKwL" target="_blank" class="social-link facebook" title="فيسبوك">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        </a>
+                        <a href="https://wa.me/249913190040" target="_blank" class="social-link whatsapp-social" title="واتساب">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="contact-card fade-in">
+                    <h3>🕐 ساعات العمل</h3>
+                    <div class="work-hours">
+                        <table>
+                            <tr><td>السبت - الخميس</td><td>8:00 صباحاً - 11:00 مساءً</td></tr>
+                            <tr><td>الجمعة</td><td>2:00 ظهراً - 11:00 مساءً</td></tr>
+                            <tr><td>الطوارئ</td><td>متاح 24 ساعة عبر واتساب</td></tr>
+                        </table>
+                    </div>
+                    <div style="margin-top: 2rem; padding: 1rem; background: var(--primary-light); border-radius: 10px; text-align: center;">
+                        <p style="font-size: 0.9rem; color: var(--primary-dark); font-weight: 600;">
+                            📍 الموقع: بورتسودان – شارع الشهداء – لفة العامرية
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>💊 صيدلية درة العلاج الحديثة</h4>
+                    <p>صيدليتكم الموثوقة في بورتسودان. نقدم خدمات صيدلانية متكاملة بأعلى معايير الجودة والاحترافية.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>روابط سريعة</h4>
+                    <ul>
+                        <li><a href="#home">الرئيسية</a></li>
+                        <li><a href="#services">خدماتنا</a></li>
+                        <li><a href="#prescription">أرسل روشتة</a></li>
+                        <li><a href="#consultation">استشارة دوائية</a></li>
+                        <li><a href="#tips">نصائح صحية</a></li>
+                        <li><a href="#contact">تواصل معنا</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>تواصل معنا</h4>
+                    <p>📍 بورتسودان – شارع الشهداء – لفة العامرية</p>
+                    <p>📱 <a href="https://wa.me/249913190040">0913190040</a></p>
+                    <p>✉️ <a href="mailto:Duratalelaj@gmail.com">Duratalelaj@gmail.com</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>صيدلية درة العلاج الحديثة تتمنى لكم دوام الصحة والعافية 🌿</p>
+                <p>© 2026 جميع الحقوق محفوظة</p>
+                <div class="footer-disclaimer">
+                    ⚠️ تنبيه: المحتوى المقدم للتوعية الصحية فقط ولا يغني عن استشارة الطبيب المختص. لا تأخذ أي دواء دون وصفة طبية.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/249913190040" target="_blank" class="whatsapp-float" title="تواصل معنا عبر واتساب">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+
+    <!-- Toast -->
+    <div class="toast" id="toast"></div>
+
+    <script>
+        // Mobile Menu
+        function toggleMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const overlay = document.getElementById('menuOverlay');
+            menu.classList.toggle('active');
+            overlay.classList.toggle('active');
+            if (overlay.classList.contains('active')) {
+                overlay.style.display = 'block';
+            } else {
+                setTimeout(() => overlay.style.display = 'none', 300);
+            }
+        }
+
+        // Toast notification
+        function showToast(message, isError = false) {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.className = 'toast show' + (isError ? ' error' : '');
+            setTimeout(() => toast.className = 'toast', 3000);
+        }
+
+        // Image handling
+        let uploadedImage = null;
+        let compressedImage = null;
+
+        function handleImageUpload(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            // Validate file type
+            if (!file.type.startsWith('image/')) {
+                showToast('يرجى رفع صورة فقط', true);
+                return;
+            }
+
+            // Validate file size (5MB max before compression)
+            if (file.size > 10 * 1024 * 1024) {
+                showToast('حجم الصورة كبير جداً. الحد الأقصى 10 ميجابايت', true);
+                return;
+            }
+
+            // Compress image
+            compressImage(file, function(compressed) {
+                compressedImage = compressed;
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById('previewImg').src = e.target.result;
+                    document.getElementById('imagePreview').style.display = 'block';
+                    document.getElementById('fileUploadArea').style.borderColor = 'var(--primary)';
+                };
+                reader.readAsDataURL(file);
+                uploadedImage = file;
+            });
+        }
+
+        function compressImage(file, callback) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const img = new Image();
+                img.onload = function() {
+                    const canvas = document.createElement('canvas');
+                    let width = img.width;
+                    let height = img.height;
+
+                    // Resize if too large
+                    const maxSize = 1200;
+                    if (width > maxSize || height > maxSize) {
+                        if (width > height) {
+                            height = (height / width) * maxSize;
+                            width = maxSize;
+                        } else {
+                            width = (width / height) * maxSize;
+                            height = maxSize;
+                        }
+                    }
+
+                    canvas.width = width;
+                    canvas.height = height;
+                    const ctx = canvas.getContext('2d');
+                    ctx.drawImage(img, 0, 0, width, height);
+
+                    // Compress to 80% quality
+                    canvas.toBlob(function(blob) {
+                        callback(blob);
+                    }, 'image/jpeg', 0.8);
+                };
+                img.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function removeImage() {
+            uploadedImage = null;
+            compressedImage = null;
+            document.getElementById('previewImg').src = '';
+            document.getElementById('imagePreview').style.display = 'none';
+            document.getElementById('fileUploadArea').style.borderColor = '';
+            document.getElementById('pImage').value = '';
+        }
+
+        // Validate phone number
+        function validatePhone(phone) {
+            const cleaned = phone.replace(/[\s\-\(\)]/g, '');
+            return /^(\+?249|0)?9[0-9]{8}$/.test(cleaned) || /^[0-9]{10,}$/.test(cleaned);
+        }
+
+        // Send Prescription via WhatsApp
+        function sendPrescriptionWhatsApp() {
+            const name = document.getElementById('pName').value.trim();
+            const phone = document.getElementById('pPhone').value.trim();
+            const notes = document.getElementById('pNotes').value.trim();
+
+            let hasError = false;
+
+            // Validate name
+            if (!name) {
+                document.getElementById('pName').classList.add('input-error');
+                document.getElementById('pNameError').classList.add('show');
+                hasError = true;
+            } else {
+                document.getElementById('pName').classList.remove('input-error');
+                document.getElementById('pNameError').classList.remove('show');
+            }
+
+            // Validate phone
+            if (!phone || !validatePhone(phone)) {
+                document.getElementById('pPhone').classList.add('input-error');
+                document.getElementById('pPhoneError').classList.add('show');
+                hasError = true;
+            } else {
+                document.getElementById('pPhone').classList.remove('input-error');
+                document.getElementById('pPhoneError').classList.remove('show');
+            }
+
+            // Validate image
+            if (!uploadedImage) {
+                document.getElementById('pImageError').classList.add('show');
+                hasError = true;
+            } else {
+                document.getElementById('pImageError').classList.remove('show');
+            }
+
+            if (hasError) {
+                showToast('يرجى ملء جميع الحقول المطلوبة', true);
+                return;
+            }
+
+            // Build WhatsApp message
+            let message = `🏥 *طلب روشتة جديدة*\n\n`;
+            message += `👤 *الاسم:* ${name}\n`;
+            message += `📱 *الهاتف:* ${phone}\n`;
+            if (notes) {
+                message += `📝 *ملاحظات:* ${notes}\n`;
+            }
+            message += `\n⚠️ *تنبيه:* سأرفق صورة الروشتة في المحادثة التالية.`;
+            message += `\n\n📋 صيدلية درة العلاج الحديثة`;
+
+            const encoded = encodeURIComponent(message);
+            const url = `https://wa.me/249913190040?text=${encoded}`;
+            window.open(url, '_blank');
+
+            showToast('تم فتح واتساب - لا تنسَ إرفاق صورة الروشتة!');
+        }
+
+        // Send Prescription via Email
+        function sendPrescriptionEmail() {
+            const name = document.getElementById('pName').value.trim();
+            const phone = document.getElementById('pPhone').value.trim();
+            const notes = document.getElementById('pNotes').value.trim();
+
+            let hasError = false;
+
+            if (!name) {
+                document.getElementById('pName').classList.add('input-error');
+                document.getElementById('pNameError').classList.add('show');
+                hasError = true;
+            } else {
+                document.getElementById('pName').classList.remove('input-error');
+                document.getElementById('pNameError').classList.remove('show');
+            }
+
+            if (!phone || !validatePhone(phone)) {
+                document.getElementById('pPhone').classList.add('input-error');
+                document.getElementById('pPhoneError').classList.add('show');
+                hasError = true;
+            } else {
+                document.getElementById('pPhone').classList.remove('input-error');
+                document.getElementById('pPhoneError').classList.remove('show');
+            }
+
+            if (!uploadedImage) {
+                document.getElementById('pImageError').classList.add('show');
+                hasError = true;
+            } else {
+                document.getElementById('pImageError').classList.remove('show');
+            }
+
+            if (hasError) {
+                showToast('يرجى ملء جميع الحقول المطلوبة', true);
+                return;
+            }
+
+            let subject = `طلب روشتة - ${name}`;
+            let body = `طلب روشتة جديد\n\n`;
+            body += `الاسم: ${name}\n`;
+            body += `الهاتف: ${phone}\n`;
+            if (notes) {
+                body += `ملاحظات: ${notes}\n`;
+            }
+            body += `\nيرجى إرفاق صورة الروشتة مع هذا البريد.`;
+
+            const encoded = encodeURIComponent(body);
+            window.open(`mailto:Duratalelaj@gmail.com?subject=${encodeURIComponent(subject)}&body=${encoded}`, '_blank');
+
+            showToast('تم فتح البريد - لا تنسَ إرفاق صورة الروشتة!');
+        }
+
+        // Send Consultation
+        function sendConsultation() {
+            const name = document.getElementById('cName').value.trim();
+            const age = document.getElementById('cAge').value.trim();
+            const type = document.getElementById('cType').value;
+            const question = document.getElementById('cQuestion').value.trim();
+
+            let hasError = false;
+
+            if (!name) {
+                document.getElementById('cName').classList.add('input-error');
+                document.getElementById('cNameError').classList.add('show');
+                hasError = true;
+            } else {
+                document.getElementById('cName').classList.remove('input-error');
+                document.getElementById('cNameError').classList.remove('show');
+            }
+
+            if (!type) {
+                document.getElementById('cType').classList.add('input-error');
+                document.getElementById('cTypeError').classList.add('show');
+                hasError = true;
+            } else {
+                document.getElementById('cType').classList.remove('input-error');
+                document.getElementById('cTypeError').classList.remove('show');
+            }
+
+            if (!question) {
+                document.getElementById('cQuestion').classList.add('input-error');
+                document.getElementById('cQuestionError').classList.add('show');
+                hasError = true;
+            } else {
+                document.getElementById('cQuestion').classList.remove('input-error');
+                document.getElementById('cQuestionError').classList.remove('show');
+            }
+
+            if (hasError) {
+                showToast('يرجى ملء جميع الحقول المطلوبة', true);
+                return;
+            }
+
+            let message = `💬 *استشارة دوائية جديدة*\n\n`;
+            message += `👤 *الاسم:* ${name}\n`;
+            if (age) {
+                message += `🎂 *العمر:* ${age} سنة\n`;
+            }
+            message += `📋 *نوع الاستفسار:* ${type}\n`;
+            message += `❓ *السؤال:*\n${question}\n`;
+            message += `\n⚕️ صيدلية درة العلاج الحديثة`;
+
+            const encoded = encodeURIComponent(message);
+            const url = `https://wa.me/249913190040?text=${encoded}`;
+            window.open(url, '_blank');
+
+            showToast('تم فتح واتساب لإرسال استشارتك');
+        }
+
+        // Scroll animations
+        function handleScrollAnimations() {
+            const elements = document.querySelectorAll('.fade-in');
+            elements.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 100) {
+                    el.classList.add('visible');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', handleScrollAnimations);
+        window.addEventListener('load', handleScrollAnimations);
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offset = 80;
+                    const position = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                    window.scrollTo({ top: position, behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 50) {
+                header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+            } else {
+                header.style.boxShadow = '0 1px 3px rgba(0,0,0,0.08)';
+            }
+        });
+
+        // Remove error on input
+        document.querySelectorAll('input, select, textarea').forEach(input => {
+            input.addEventListener('input', function() {
+                this.classList.remove('input-error');
+                const errorEl = this.parentElement.querySelector('.error-msg');
+                if (errorEl) errorEl.classList.remove('show');
+            });
+        });
+    </script>
+</body>
+</html>
